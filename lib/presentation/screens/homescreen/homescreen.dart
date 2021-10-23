@@ -24,14 +24,15 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (BuildContext context, snapshot) {
             if (!snapshot.hasData) {
               return Container(
-                height:SizeConfig.screenHeightDp,
+                height: SizeConfig.screenHeightDp,
                 width: SizeConfig.screenWidthDp,
                 child: Center(
                   child: CircularProgressIndicator(),
                 ),
               );
             } else if (snapshot.hasData) {
-              return ListView.builder(shrinkWrap: true,
+              return ListView.builder(
+                  shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, index) {
@@ -43,6 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
               return Container(
                 height: SizeConfig.screenHeightDp,
                 width: SizeConfig.screenWidthDp,
+                child: Center(
+                  child: Text("Something went wrong"),
+                ),
               );
             }
           },
