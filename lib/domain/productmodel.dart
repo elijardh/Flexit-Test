@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class ProductModel {
   int id;
   String title;

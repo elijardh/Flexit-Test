@@ -8,7 +8,7 @@ class DetailScreen extends StatelessWidget {
   final ProductModel model;
   DetailScreen({this.model});
 
-  SizeConfig config = SizeConfig();
+  final SizeConfig config = SizeConfig();
 
   @override
   Widget build(BuildContext context) {
