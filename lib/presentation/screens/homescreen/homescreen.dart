@@ -5,7 +5,7 @@ import 'package:flexittest/presentation/reusables/productwidget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -34,12 +34,20 @@ class _HomeScreenState extends State<HomeScreen> {
               return ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: snapshot.data.length,
+                  itemCount: snapshot.data!.length,
                   itemBuilder: (BuildContext context, index) {
                     return ProductWidget(
-                      model: snapshot.data[index],
+                      model: snapshot.data![index],
                     );
                   });
+            } else if (snapshot.hasError) {
+              return Container(
+                height: SizeConfig.screenHeightDp,
+                width: SizeConfig.screenWidthDp,
+                child: Center(
+                  child: Text("Something went wrong"),
+                ),
+              );
             } else {
               return Container(
                 height: SizeConfig.screenHeightDp,

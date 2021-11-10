@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flexittest/domain/productmodel.dart';
 import 'package:http/http.dart' as http;
 
-Future<List<ProductModel>> getProductList({http.Client client}) async {
+Future<List<ProductModel>> getProductList({http.Client? client}) async {
   try {
     var response =
         await http.get(Uri.parse("https://fakestoreapi.com/products/"));

@@ -5,7 +5,7 @@ import 'package:flexittest/presentation/reusables/y_margin.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  final ProductModel model;
+  final ProductModel? model;
   DetailScreen({this.model});
 
   final SizeConfig config = SizeConfig();
@@ -27,13 +27,13 @@ class DetailScreen extends StatelessWidget {
                         size: 16,
                       )),
                   pinned: false,
-                  expandedHeight: config.sh(250),
+                  expandedHeight: config.sh(250) as double?,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Image.network(
-                      model.image,
+                      model!.image!,
                       fit: BoxFit.fill,
                       errorBuilder: (BuildContext context, Object exception,
-                          StackTrace stackTrace) {
+                          StackTrace? stackTrace) {
                         return Text(exception.toString());
                       },
                     ),
@@ -47,14 +47,14 @@ class DetailScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    model.title,
+                    model!.title!,
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.black),
                     textAlign: TextAlign.left,
                   ),
                   YMargin(10),
                   Text(
-                    model.description,
+                    model!.description!,
                     maxLines: 50,
                     textAlign: TextAlign.left,
                   ),
@@ -68,7 +68,7 @@ class DetailScreen extends StatelessWidget {
                   ),
                   YMargin(5),
                   Text(
-                    "\$ ${model.price}",
+                    "\$ ${model!.price}",
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.5),
                     ),

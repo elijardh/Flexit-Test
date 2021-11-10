@@ -4,7 +4,7 @@ import 'package:flexittest/presentation/screens/detailscreen/detailscreen.dart';
 import 'package:flutter/material.dart';
 
 class ProductWidget extends StatelessWidget {
-  final ProductModel model;
+  final ProductModel? model;
   ProductWidget({this.model});
 
   @override
@@ -20,10 +20,10 @@ class ProductWidget extends StatelessWidget {
               ));
         },
         leading: CircleAvatar(
-          backgroundImage: NetworkImage(model.image),
+          backgroundImage: NetworkImage(model!.image!),
         ),
-        title: Text(model.title,style: TextStyle(fontWeight: FontWeight.bold),),
-        subtitle: Text(model.description),
+        title: Text(model!.title!,style: TextStyle(fontWeight: FontWeight.bold),),
+        subtitle: Text(model!.description!),
         trailing: Icon(
           Icons.arrow_forward_ios_outlined,
           color: Colors.black.withOpacity(0.5),

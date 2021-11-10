@@ -1,11 +1,11 @@
 class ProductModel {
-  int id;
-  String title;
-  double price;
-  String description;
-  String category;
-  String image;
-  Rating rating;
+  int? id;
+  String? title;
+  double? price;
+  String? description;
+  String? category;
+  String? image;
+  Rating? rating;
 
   ProductModel(
       {this.id,
@@ -43,15 +43,15 @@ class ProductModel {
     data['category'] = this.category;
     data['image'] = this.image;
     if (this.rating != null) {
-      data['rating'] = this.rating.toJson();
+      data['rating'] = this.rating!.toJson();
     }
     return data;
   }
 }
 
 class Rating {
-  double rate;
-  int count;
+  double? rate;
+  int? count;
 
   Rating({this.rate, this.count});
 
